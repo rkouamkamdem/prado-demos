@@ -1,0 +1,10 @@
+<%@ Title="Ma liste de l'ensemble des utilisateurs." %>
+<com:TContent ID="Main">
+    <com:TRepeater ID="Repeater"
+                   ItemRenderer="Application.pages.users.UserRenderer"
+                   AllowPaging="true"
+                   AllowCustomPaging="true"
+                   PageSize="5"
+    />
+    <com:TPager ControlToPaginate="Repeater" OnPageIndexChanged="pageChanged" />
+</com:TContent>

@@ -1,0 +1,31 @@
+<%@ Title="Mon Blog - Administration des comptes utilisateurs" %>
+<com:TContent ID="Main">
+    <h1>Administration des comptes utilisateurs</h1>
+    <a href="prado-demos<%= $this->Service->constructUrl('users.NewUser')%>">Créer un nouvel utilisateur</a>
+    <br/>
+    <com:TDataGrid ID="UserGrid"
+                   DataKeyField="username"
+                   AutoGenerateColumns="false"
+                   OnDeleteCommand="deleteButtonClicked">
+        <com:THyperLinkColumn
+                HeaderText="Pseudo"
+                DataTextField="username"
+                DataNavigateUrlField="username">
+            <prop:DataNavigateUrlFormatString>#
+               $this->Service->constructUrl('users.EditUser',array('username'=>{0}))
+            </prop:DataNavigateUrlFormatString>
+
+        </com:THyperLinkColumn>
+        <com:TBoundColumn
+                HeaderText="Email"
+                DataField="email" />
+        <com:TCheckBoxColumn
+                HeaderText="Administrateur"
+                DataField="role" />
+        <com:TButtonColumn
+                HeaderText="Commande"
+                Text="Supprimer"
+                ButtonType="PushButton"
+                CommandName="delete" />
+    </com:TDataGrid>
+</com:TContent>

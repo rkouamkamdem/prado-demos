@@ -1,0 +1,4 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="Page d'accueil - Prado" %>
+    <com:TContent ID="Main">
+<com:TButton Text="Click me" OnClick="buttonClicked" />
+    </com:TContent>

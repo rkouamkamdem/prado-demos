@@ -1,0 +1,35 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="Mon blog - Contact" %>
+<com:TContent ID="Main">
+    <h1>Contact</h1>
+    <p>Veuillez remplir le formulaire suivant pour me laisser vos impressions au sujet de mon blog.
+        Merci !</p>
+
+        <span>Votre nom:</span>
+        <com:TRequiredFieldValidator ControlToValidate="Name"
+                                     ErrorMessage="Veuillez indiquer votre nom."
+                                     Display="Dynamic" />
+        <br/>
+        <com:TTextBox ID="Name" />
+        <br/>
+        <span>Votre email:</span>
+        <com:TRequiredFieldValidator ControlToValidate="Email"
+                                     ErrorMessage="Veuillez indiquer votre email."
+                                     Display="Dynamic" />
+        <com:TEmailAddressValidator ControlToValidate="Email"
+                                    ErrorMessage="Vous avez saisi un email invalide."
+                                    Display="Dynamic" />
+        <br/>
+        <com:TTextBox ID="Email" />
+        <br/>
+        <span>Commentaires:</span>
+        <com:TRequiredFieldValidator ControlToValidate="Feedback"
+                                     ErrorMessage="Veuillez saisir un commentaire."
+                                     Display="Dynamic" />
+        <br/>
+        <com:TTextBox ID="Feedback"
+                      TextMode="MultiLine"
+                      Rows="10"
+                      Columns="40" />
+        <br/>
+        <com:TButton Text="Envoyer" OnClick="submitButtonClicked" />
+</com:TContent>

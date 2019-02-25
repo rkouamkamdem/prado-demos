@@ -1,0 +1,20 @@
+<com:TContent ID="Main">
+    <h2>
+        <com:TLiteral Text="<%= $this->Post->title %>" />
+    </h2>
+    <com:TControl Visible="<%= $this->canEdit() %>">
+        <a href="prado-demos<%= $this->Service->constructUrl('posts.EditPost',array('id'=>$this->Post->post_id))%>" target="_blank" >Modifier</a> |
+        <com:TLinkButton Text="Supprimer"
+                         OnClick="deletePost"
+                         Attributes.onclick="javascript:if(!confirm('Etes vous sûr de vouloir supprimer le post N° [<%= $this->Post->post_id %>] ?')) return false;" />
+    </com:TControl>
+    <p>
+        Auteur:
+        <com:TLiteral Text="<%= $this->Post->author->username %>" /><br/>
+        Heure:
+        <com:TLiteral Text="<%= date('m/d/Y h:m:sa', $this->Post->create_time) %>" />
+    </p>
+    <p>
+        <com:TLiteral Text="<%= $this->Post->content %>" />
+    </p>
+</com:TContent>

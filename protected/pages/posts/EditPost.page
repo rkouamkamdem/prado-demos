@@ -1,0 +1,36 @@
+<%@ Title="Mon Blog - Modification Message" %>
+<com:TContent ID="Main">
+    <h1>Modification message</h1>
+    <span>Titre:</span>
+    <com:TRequiredFieldValidator
+            ControlToValidate="TitleEdit"
+            ErrorMessage="Veuillez indiquer un titre."
+            Display="Dynamic" />
+    <br/>
+    <com:TTextBox ID="TitleEdit" Columns="50" />
+    <br/>
+    <span>Message:</span>
+    <com:TRequiredFieldValidator
+            ControlToValidate="ContentEdit"
+            ErrorMessage="Veuillez indiquer le contenu du message."
+            Display="Dynamic" />
+    <br/>
+    <com:THtmlArea ID="ContentEdit" />
+    <br/>
+    <!--
+    <p>
+        Auteur:
+        <com:TLiteral ID="AuthorEdit" /><br/>
+        Heure:
+        <com:TLiteral ID="PostDateCreatedEdit" />
+    </p>
+    -->
+    <p>
+        Auteur:
+        <com:TLiteral Text="<%= $this->Post->author_id %>" /><br/>
+        Heure:
+        <com:TLiteral Text="<%= date('m/d/Y h:m:sa', $this->Post->create_time) %>" />
+    </p>
+    <com:TButton Text="Enregistrer" OnClick="saveButtonClicked" />
+    <br/><br/>
+</com:TContent>

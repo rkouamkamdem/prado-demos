@@ -1,0 +1,22 @@
+<com:TContent ID="Main">
+    <h2>
+        <com:TLiteral Text="<%= $this->User->username %>" />
+    </h2>
+    <com:TControl Visible="<%= $this->canEdit() %>">
+        <a href="prado-demos<%= $this->Service->constructUrl('users.EditUser',array('username'=>$this->User->username))%>" target="_blank" >Modifier</a> |
+        <com:TLinkButton Text="Supprimer"
+                         OnClick="deletePost"
+                         Attributes.onclick="javascript:if(!confirm('Etes vous sûr de vouloir supprimer le User [<%= $this->User->username %>] ?')) return false;" />
+    </com:TControl>
+    <p>
+        Email:
+        <com:TLiteral Text="<%= $this->User->email %>" /><br/>
+        Firstname:
+        <com:TLiteral Text="<%= $this->User->first_name %>" /><br/>
+        Lastname:
+        <com:TLiteral Text="<%= $this->User->last_name %>" /><br/>
+        Grade:
+        <com:TLiteral Text="<%= ( $this->User->role == 0 ) ? 'USER' : 'ADMIN' %>" /><br/>
+    </p>
+
+</com:TContent>

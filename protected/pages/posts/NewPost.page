@@ -1,0 +1,21 @@
+<%@ Title="Mon Blog - Nouveau Message" %>
+<com:TContent ID="Main">
+    <h1>Création nouveau message</h1>
+    <span>Titre:</span>
+    <com:TRequiredFieldValidator
+            ControlToValidate="TitleEdit"
+            ErrorMessage="Veuillez indiquer un titre."
+            Display="Dynamic" />
+    <br/>
+    <com:TTextBox ID="TitleEdit" Columns="50" />
+    <br/>
+    <span>Message:</span>
+    <com:TRequiredFieldValidator
+            ControlToValidate="ContentEdit"
+            ErrorMessage="Veuillez indiquer le contenu du message."
+            Display="Dynamic" />
+    <br/>
+    <com:THtmlArea ID="ContentEdit" />
+    <br/>
+    <com:TButton Text="Ajouter" OnClick="createButtonClicked" />
+</com:TContent>
